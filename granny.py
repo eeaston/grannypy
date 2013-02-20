@@ -80,7 +80,7 @@ def unpack_zipball(arch):
 
 def download_archive(requirement_or_uri, dest_dir):
     get_log().info("Downloading archive {}".format(requirement_or_uri))
-    index = package_index.PackageIndex()
+    index = package_index.PackageIndex(search_path=[])
     archive = index.download(requirement_or_uri, dest_dir)
     if not archive:
         raise GrannyError("Can't find package on pypi.python.org")
